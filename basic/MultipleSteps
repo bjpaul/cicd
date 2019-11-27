@@ -4,7 +4,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 retry(3) {
-                    sh 'echo "Fail!"; exit 1'
+                    sh 'echo "Success!"; exit 0'
                 }
 
                 timeout(time: 30, unit: 'SECONDS') {
