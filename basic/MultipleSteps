@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Deploy') {
+            steps {
+                retry(3) {
+                    sh 'echo "Fail!"; exit 1'
+                }
+
+                timeout(time: 30, unit: 'SECONDS') {
+                    sh 'sleep 35'
+                }
+            }
+        }
+        stage('Health Check') {
+            retry(3) {
+                timeout(time: 2, unit: 'SECONDS') {
+                    sh 'https://www.google.com/'
+                }
+            }
+        }
+    }
+}
