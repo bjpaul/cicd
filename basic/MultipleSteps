@@ -8,7 +8,7 @@ pipeline {
                 }
 
                 timeout(time: 30, unit: 'SECONDS') {
-                    sh 'sleep 35'
+                    sh 'sleep 5'
                 }
             }
         }
