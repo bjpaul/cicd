@@ -1,0 +1,30 @@
+pipeline {
+    agent {
+        label '!windows'
+    }
+
+    environment {
+        MY_VAR = 'abc'
+    }
+
+    stages {
+        stage('One') {
+            steps {
+                echo "Var is ${MY_VAR}"
+            }
+        }
+        stage('Two') {
+            environment {
+                MY_VAR = 'def'
+            }
+            steps {
+                echo "Var is ${MY_VAR}"
+            }
+        }
+        stage('Three') {
+            steps {
+                echo "Var is ${MY_VAR}"
+            }
+        }
+    }
+}
