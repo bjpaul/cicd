@@ -4,11 +4,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 retry(3) {
-                    sh 'echo "Fail!"; exit 1'
+                    sh 'echo "Success!"; exit 0'
                 }
 
                 timeout(time: 30, unit: 'SECONDS') {
-                    sh 'sleep 35'
+                    sh 'sleep 5'
                 }
             }
         }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 retry(3) {
                     timeout(time: 2, unit: 'SECONDS') {
-                        sh 'https://www.google.com/'
+                        sh 'curl https://www.google.com/'
                     }
                 }
             }
