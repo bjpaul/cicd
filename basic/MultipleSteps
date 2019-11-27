@@ -13,9 +13,11 @@ pipeline {
             }
         }
         stage('Health Check') {
-            retry(3) {
-                timeout(time: 2, unit: 'SECONDS') {
-                    sh 'https://www.google.com/'
+            steps {
+                retry(3) {
+                    timeout(time: 2, unit: 'SECONDS') {
+                        sh 'https://www.google.com/'
+                    }
                 }
             }
         }
