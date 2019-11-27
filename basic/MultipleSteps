@@ -16,7 +16,7 @@ pipeline {
             steps {
                 retry(3) {
                     timeout(time: 2, unit: 'SECONDS') {
-                        sh 'https://www.google.com/'
+                        sh 'curl https://www.google.com/'
                     }
                 }
             }
